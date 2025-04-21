@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#121212">
+    <title>Muskurahat Foundation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Comic+Neue:wght@400;700&family=Bubblegum+Sans&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/3.3.0/sha.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div class="nav-left">
+            <div class="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="logo">
+                <img src="/logo.jpg" alt="Muskurahat Foundation Logo" class="logo-image">
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#vision" class="nav-link">Our Vision</a></li>
+            <li><a href="#get-involved" class="nav-link">Get Involved</a></li>
+            <li><a href="#shop" class="nav-link">Shop</a></li>
+            <li><a href="#gallery" class="nav-link">Gallery</a></li>
+            <li class="dropdown">
+                <a href="#impact" class="nav-link">Impact</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#education" class="dropdown-link">Education</a></li>
+                    <li><a href="#peace-building" class="dropdown-link">Peace Building</a></li>
+                    <li><a href="#healthcare" class="dropdown-link">Healthcare</a></li>
+                    <li><a href="#women-empowerment" class="dropdown-link">Women Empowerment</a></li>
+                    <li><a href="#entrepreneurship" class="dropdown-link">Entrepreneurship</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#join-us" class="nav-link">Join Us</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#volunteering" class="dropdown-link">Volunteer With Us</a></li>
+                    <li><a href="#internships" class="dropdown-link">Internships</a></li>
+                    <li><a href="#campus-ambassadors" class="dropdown-link">Campus Ambassadors</a></li>
+                </ul>
+            </li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#contact" class="nav-link">Contact Us</a></li>
+        </ul>
+        <div class="donate-btn">
+            <a href="#donate" class="btn open-donate-popup"><i class="fas fa-heart"></i> Donate Now!</a>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section">
+        <div class="hero-slideshow" id="heroSlideshow">
+            <div class="hero-slide active">
+                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="Children we help">
+            </div>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1509099863731-ef4bff19e808?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="Educational activities">
+            </div>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1565945887714-d5139f4eb0ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="Children learning">
+            </div>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1540479859555-17af45c78602?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="Educational support">
+            </div>
+        </div>
+        <div class="hero-overlay">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Let's ensure <span class="highlight childlike-text">happy childhoods</span> for India's children</h1>
+                    <div class="hero-text">
+                        <div class="hero-buttons">
+                            <a href="#vision" class="btn">Our Vision</a>
+                            <a href="#donate" class="btn btn-outline open-donate-popup">
+                                <i class="fas fa-heart"></i> Donate Now & Change Lives!
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved Section -->
+    <section id="get-involved" class="section shop-section">
+        <div class="container">
+            <div class="picture-grid">
+                <div class="circle-container">
+                    <div class="circle-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=500&q=80" alt="Support Education">
+                        <div class="brush-overlay"></div>
+                    </div>
+                    <h3>Support Education</h3>
+                    <a href="#donate" class="btn shop-btn fixed-btn open-donate-popup">
+                        <i class="fas fa-heart"></i> Donate Now
+                    </a>
+                </div>
+                <div class="circle-container">
+                    <div class="circle-image">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=500&q=80" alt="Volunteer">
+                        <div class="brush-overlay"></div>
+                    </div>
+                    <h3>Join As Volunteer</h3>
+                    <a href="#contact" class="btn shop-btn fixed-btn">
+                        <i class="fas fa-users"></i> Get Involved
+                    </a>
+                </div>
+                <div class="circle-container">
+                    <div class="circle-image">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=500&q=80" alt="Campus Ambassador">
+                        <div class="brush-overlay"></div>
+                    </div>
+                    <h3>Campus Ambassador</h3>
+                    <a href="#contact" class="btn shop-btn fixed-btn">
+                        <i class="fas fa-user-graduate"></i> Join Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Shop With <span class="highlight">Us</span></h2>
+                <div class="section-underline"></div>
+            </div>
+            <div class="shop-banner">
+                <div class="circle-image">
+                    <img src="https://images.unsplash.com/photo-1540479859555-17af45c78602?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=500&q=80" alt="Child with products">
+                    <div class="brush-overlay"></div>
+                </div>
+                <div class="shop-content">
+                    <p>Support our education initiatives by purchasing our merchandise. Every purchase helps fund educational programs for underprivileged children.</p>
+                    <a href="https://mashekngo.com" target="_blank" class="btn shop-btn">
+                        <i class="fas fa-shopping-cart"></i> Visit Store
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="section purple-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our <span class="highlight">Vision</span></h2>
+                <div class="section-underline"></div>
+            </div>
+            <div class="icon-grid">
+                <div class="icon-box">
+                    <div class="icon-circle">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Education</h3>
+                </div>
+                <div class="icon-box">
+                    <div class="icon-circle">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Healthcare</h3>
+                </div>
+                <div class="icon-box">
+                    <div class="icon-circle">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3>Nutrition</h3>
+                </div>
+                <div class="icon-box">
+                    <div class="icon-circle">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Scholarships</h3>
+                </div>
+            </div>
+            <div class="circle-banner">
+                <div class="circle-image large">
+                    <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=500&q=80" alt="Children smiling">
+                    <div class="brush-overlay"></div>
+                </div>
+                <div class="vision-text">
+                    <h3>Our Vision</h3>
+                    <p>A future where every child in India has equal opportunities to learn, grow, and thrive.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section-main">
+        <div class="container">
+            <div class="section-header">
+                <h2>About <span class="highlight">MASHEK</span></h2>
+                <div class="section-underline"></div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="circle-image small">
+                        <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=500&q=80" alt="Founding">
+                        <div class="brush-overlay"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>2017</h3>
+                        <p>Founded in Mumbai to improve lives of underprivileged children</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="circle-image small">
+                        <img src="https://images.unsplash.com/photo-1607748851687-ba9a10438621?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=500&q=80" alt="Growth">
+                        <div class="brush-overlay"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>2019</h3>
+                        <p>Expanded education initiatives across multiple states</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="circle-image small">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=500&q=80" alt="Achievements">
+                        <div class="brush-overlay"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>2022</h3>
+                        <p>Reached thousands of children with educational support</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="circle-image small">
+                        <img src="https://images.unsplash.com/photo-1563237023-b1e970526dcb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=500&q=80" alt="Future">
+                        <div class="brush-overlay"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Today</h3>
+                        <p>Continuing our mission with your support</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Registration Information -->
+            <div class="registration-info">
+                <div class="badge-content">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Registration Details</h3>
+                    
+                    <ul class="registration-details">
+                        <li><i class="fas fa-file-alt"></i> Regd. No: 454/243/2017 (Govt of JK UT)</li>
+                        <li><i class="fas fa-id-card"></i> Unique ID: JK/2018/0197483 (Govt of India)</li>
+                        <li><i class="fas fa-receipt"></i> PAN: AAFTM6552L</li>
+                        <li><i class="fas fa-receipt"></i> TAN: AMRM16228C</li>
+                        <li><i class="fas fa-file-invoice"></i> 10AG Registration of Income Tax: AAFTM6552LE2022101</li>
+                        <li><i class="fas fa-building"></i> MSME Regd No: UDYAM-JK-01-0014588</li>
+                    </ul>
+                    
+                    <h4 class="digital-presence-title">Digital Presence</h4>
+                    <p class="digital-presence">Qause, UN-DESA, UN-ECOSOC, Great Non-Profits, Give India, Global Giving, Big Tech NASSCOM, Ministry of Women & Child Development, etc.</p>
+                    
+                    <div class="about-social">
+                        <a href="https://www.facebook.com/mashekngo" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/mashekngo" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/mashekngo" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/mashekngo" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:mashek.org@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our <span class="highlight">Team</span></h2>
+                <div class="section-underline"></div>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80" alt="Team Member">
+                        <div class="brush-overlay"></div>
+                    </div>
+                    <h3>Educators</h3>
+                    <p>Supporting Children</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80" alt="Team Member">
+                        <div class="brush-overlay"></div>
+                    </div>
+                    <h3>Himanshu Goenka</h3>
+                    <p>Founder</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80" alt="Team Member">
+                        <div class="brush-overlay"></div>
+                    </div>
+                    <h3>Core Team</h3>
+                    <p>Leadership & Management</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80" alt="Team Member">
+                        <div class="brush-overlay"></div>
+                    </div>
+                    <h3>Volunteers</h3>
+                    <p>Creating Change</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our <span class="highlight">Gallery</span></h2>
+                <div class="section-underline"></div>
+            </div>
+            
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Images will be dynamically loaded from Firebase -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact <span class="highlight">Us</span></h2>
+                <div class="section-underline"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-form-container">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <input type="hidden" id="recipient" name="recipient" value="mashek.org@gmail.com">
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-details">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Mumbai, India</p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>mashek.org@gmail.com</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/mashekngo" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://twitter.com/mashekngo" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/mashekngo" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/mashekngo" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="mailto:mashek.org@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 <span class="highlight">MASHEK Foundation</span>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Add donation popup HTML at the end of body, before scripts -->
+    
+    <!-- Donation Popup -->
+    <div id="donationPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <div class="popup-header">
+                <h2>Make a <span class="highlight">Donation</span></h2>
+                <div class="section-underline"></div>
+            </div>
+            
+            <form id="donationForm">
+                <div class="form-group">
+                    <label for="donorName">Your Name</label>
+                    <input type="text" id="donorName" name="donorName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="donorEmail">Email</label>
+                    <input type="email" id="donorEmail" name="donorEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="donorPhone">Phone Number</label>
+                    <input type="tel" id="donorPhone" name="donorPhone" pattern="[0-9]{10}" placeholder="10-digit number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="donationAmount">Donation Amount (₹)</label>
+                    <input type="number" id="donationAmount" name="donationAmount" min="1" required>
+                </div>
+                
+                <button type="button" id="payButton" class="btn" disabled>Donate with PhonePe <i class="fas fa-mobile-alt"></i></button>
+                
+                <div id="phonePeContainer" style="margin-top: 15px; text-align: center; display: none;">
+                    <!-- PhonePe QR or redirect will appear here -->
+                </div>
+                
+                <div id="paymentSuccess" style="display: none;">
+                    <div class="payment-success-message">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Payment successful! Thank you for your donation.</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- PhonePe SDK -->
+    <script src="https://checkout.phonepe.com/checkout/bundle.js"></script>
+    
+    <script src="script.js"></script>
+    
+    <!-- Firebase SDK (Analytics only) -->
+    <script type="module">
+      // Import the functions you need from the SDKs
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+      import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyBY2ePy8RdEWSMf6cZyO7bFG12Pdvq3fAU",
+        authDomain: "muskurahat-166bb.firebaseapp.com",
+        projectId: "muskurahat-166bb",
+        storageBucket: "muskurahat-166bb.firebasestorage.app",
+        messagingSenderId: "530925327774",
+        appId: "1:530925327774:web:efd279a5b05cb7a624328f",
+        measurementId: "G-5R2S61WQYP",
+        databaseURL: "https://muskurahat-166bb-default-rtdb.asia-southeast1.firebasedatabase.app"
+      };
+
+      // Initialize Firebase (for analytics only)
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      
+      // Initialize anonymous authentication to allow database writing
+      const auth = getAuth();
+      signInAnonymously(auth)
+        .then(() => {
+          console.log('Anonymous authentication successful');
+          // Set a global flag that we can check in our JS
+          window.firebaseAuthReady = true;
+        })
+        .catch((error) => {
+          console.error('Authentication failed:', error);
+        });
+    </script>
+
+    <script>
+    // Demo functions for loading indicators
+    function demoAjaxLoader() {
+        showAjaxLoader();
+        setTimeout(() => {
+            hideAjaxLoader();
+        }, 3000);
+    }
+
+    function demoPageLoading() {
+        showPageLoading("Loading demo content...");
+        setTimeout(() => {
+            hidePageLoading();
+        }, 3000);
+    }
+
+    function demoButtonLoading(button) {
+        setButtonLoading(button, true);
+        setTimeout(() => {
+            setButtonLoading(button, false);
+        }, 3000);
+    }
+    </script>
+</body>
+</html> 

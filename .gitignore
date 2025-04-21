@@ -1,0 +1,16 @@
+# Firebase cache files
+.firebase/
+firebase-debug.log
+
+# Node.js dependencies
+node_modules/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db 
