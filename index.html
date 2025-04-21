@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Comic+Neue:wght@400;700&family=Bubblegum+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/3.3.0/sha.js"></script>
 </head>
 <body>
@@ -450,40 +451,60 @@
     
     <script src="script.js"></script>
     
-    <!-- Firebase SDK (Analytics only) -->
+    <!-- Firebase fallback script -->
+    <script src="firebase-fallback.js" type="module"></script>
+    
+    <!-- Firebase SDK with fallback -->
     <script type="module">
       // Import the functions you need from the SDKs
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
-      import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
-
+      let firebaseApp, firebaseAuth, firebaseAnalytics;
+      
       // Your web app's Firebase configuration
       const firebaseConfig = {
         apiKey: "AIzaSyBY2ePy8RdEWSMf6cZyO7bFG12Pdvq3fAU",
         authDomain: "muskurahat-166bb.firebaseapp.com",
         projectId: "muskurahat-166bb",
-        storageBucket: "muskurahat-166bb.firebasestorage.app",
+        storageBucket: "muskurahat-166bb.appspot.com",
         messagingSenderId: "530925327774",
         appId: "1:530925327774:web:efd279a5b05cb7a624328f",
         measurementId: "G-5R2S61WQYP",
         databaseURL: "https://muskurahat-166bb-default-rtdb.asia-southeast1.firebasedatabase.app"
       };
-
-      // Initialize Firebase (for analytics only)
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
       
-      // Initialize anonymous authentication to allow database writing
-      const auth = getAuth();
-      signInAnonymously(auth)
-        .then(() => {
-          console.log('Anonymous authentication successful');
-          // Set a global flag that we can check in our JS
+      // Try to initialize Firebase
+      async function initFirebase() {
+        try {
+          // Try to import the real Firebase SDK
+          const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js");
+          const { getAnalytics } = await import("https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js");
+          const { getAuth, signInAnonymously } = await import("https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js");
+          
+          // Initialize Firebase
+          firebaseApp = initializeApp(firebaseConfig);
+          firebaseAnalytics = getAnalytics(firebaseApp);
+          
+          // Initialize anonymous authentication
+          firebaseAuth = getAuth();
+          try {
+            await signInAnonymously(firebaseAuth);
+            console.log('Anonymous authentication successful');
+          } catch (error) {
+            console.error('Authentication failed:', error);
+          }
+          
+          // Set the global flag
           window.firebaseAuthReady = true;
-        })
-        .catch((error) => {
-          console.error('Authentication failed:', error);
-        });
+        } catch (error) {
+          console.error('Error initializing Firebase:', error);
+          console.log('Using local fallback for Firebase');
+          
+          // Set the global flag even though Firebase failed
+          window.firebaseAuthReady = true;
+        }
+      }
+      
+      // Initialize Firebase
+      initFirebase();
     </script>
 
     <script>

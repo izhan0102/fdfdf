@@ -3,9 +3,16 @@
 
 // Set headers to allow cross-origin requests from your domain
 header("Access-Control-Allow-Origin: *"); // In production, specify your domain instead of *
-header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Methods: POST, OPTIONS"); // Added OPTIONS for preflight requests
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json");
+
+// Handle OPTIONS preflight requests
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    // Just return 200 OK for preflight requests
+    http_response_code(200);
+    exit;
+}
 
 // PhonePe API credentials
 $api_key = '65bea3ee-3d0b-4bee-a1de-463c0f51a974';
@@ -13,6 +20,24 @@ $merchant_id = 'MUSKURAHATFOUNDATION';
 
 // Check if this is a POST request
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    // For development/testing only: provide a mock response
+    if (isset($_GET['test']) && $_GET['test'] === 'true') {
+        // Mock response for testing
+        echo json_encode([
+            'success' => true,
+            'data' => [
+                'merchantId' => $merchant_id,
+                'merchantTransactionId' => 'MSK' . time(),
+                'instrumentResponse' => [
+                    'redirectInfo' => [
+                        'url' => 'https://phonepe.com/test-redirect?txnId=MSK' . time()
+                    ]
+                ]
+            ]
+        ]);
+        exit;
+    }
+    
     http_response_code(405);
     echo json_encode(['error' => 'Method not allowed']);
     exit;
@@ -42,7 +67,7 @@ try {
         'merchantTransactionId' => $transaction_id,
         'merchantUserId' => $user_id,
         'amount' => $amount,
-        'redirectUrl' => $_SERVER['HTTP_REFERER'] . '?txnId=' . $transaction_id,
+        'redirectUrl' => (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . '?txnId=' . $transaction_id,
         'redirectMode' => 'REDIRECT',
         'mobileNumber' => $request_data['phone'],
         'paymentInstrument' => [
@@ -52,6 +77,24 @@ try {
     
     // Convert payment data to JSON
     $payload = json_encode($payment_data);
+    
+    // For local development/testing
+    if (isset($_GET['mock']) && $_GET['mock'] === 'true') {
+        // Return a mock success response for testing
+        echo json_encode([
+            'success' => true,
+            'data' => [
+                'merchantId' => $merchant_id,
+                'merchantTransactionId' => $transaction_id,
+                'instrumentResponse' => [
+                    'redirectInfo' => [
+                        'url' => 'index.html?txnId=' . $transaction_id . '&status=SUCCESS'
+                    ]
+                ]
+            ]
+        ]);
+        exit;
+    }
     
     // Generate checksum
     $checksum = generateChecksum($payload, $api_key);

@@ -3,6 +3,16 @@
 
 // Set headers
 header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *"); // In production, specify your domain instead of *
+header("Access-Control-Allow-Methods: GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+
+// Handle OPTIONS preflight requests
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    // Just return 200 OK for preflight requests
+    http_response_code(200);
+    exit;
+}
 
 // PhonePe API credentials
 $api_key = '65bea3ee-3d0b-4bee-a1de-463c0f51a974';
@@ -14,6 +24,19 @@ $txn_id = isset($_GET['txnId']) ? $_GET['txnId'] : '';
 if (empty($txn_id)) {
     http_response_code(400);
     echo json_encode(['success' => false, 'error' => 'Missing transaction ID']);
+    exit;
+}
+
+// For development/testing, provide a mock success response
+if (isset($_GET['mock']) && $_GET['mock'] === 'true') {
+    echo json_encode([
+        'success' => true,
+        'data' => [
+            'merchantTransactionId' => $txn_id,
+            'amount' => 10000, // 100 rupees in paise
+            'transactionId' => $txn_id
+        ]
+    ]);
     exit;
 }
 
@@ -50,8 +73,13 @@ try {
     
     $result = json_decode($response, true);
     
+    // Create logs directory if it doesn't exist
+    if (!file_exists('logs')) {
+        mkdir('logs', 0755, true);
+    }
+    
     // Log payment details to file (for debugging purposes)
-    file_put_contents('payment_logs.txt', date('Y-m-d H:i:s') . ' - ' . $response . PHP_EOL, FILE_APPEND);
+    file_put_contents('logs/payment_logs.txt', date('Y-m-d H:i:s') . ' - ' . $response . PHP_EOL, FILE_APPEND);
     
     // Return success status
     if (isset($result['success']) && $result['success'] === true) {

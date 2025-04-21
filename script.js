@@ -515,7 +515,8 @@ window.addEventListener('load', () => {
             setButtonLoading(payButton, true);
             
             // Call our server-side handler instead of PhonePe API directly
-            fetch('phonepe_handler.php', {
+            // Use mock=true for development/testing
+            fetch('phonepe_handler.php?mock=true', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -527,7 +528,12 @@ window.addEventListener('load', () => {
                     phone: phone
                 })
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 setButtonLoading(payButton, false);
                 
@@ -552,9 +558,14 @@ window.addEventListener('load', () => {
             const status = urlParams.get('status');
             
             if (txnId) {
-                // Verify payment status
-                fetch('verify_payment.php?txnId=' + txnId)
-                    .then(response => response.json())
+                // Verify payment status - use mock=true for development/testing
+                fetch('verify_payment.php?txnId=' + txnId + '&mock=true')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
                     .then(data => {
                         if (data.success) {
                             // Show success message
